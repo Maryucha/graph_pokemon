@@ -78,18 +78,28 @@ Execute a pipeline para:
 ---
 ## **Consultas**
 
-1. Pokémon por Tipo
+1. Todos os pokemons
 ```cypher
-    MATCH (p:Poke)-[:PERTENCE_A]->(t:Type {name: "Fire"})
+    MATCH (p:Poke) RETURN p
+```
+![Grafo](screenshots/query_all.png)
+
+2. Chamar pelo nome
+```cypher
+    MATCH (p:Poke{name:'pikachu'}) RETURN p
+```
+![Grafo](screenshots/query_p_name.png)
+
+2. Pokémon por Tipo
+```cypher
+    MATCH (p:Poke)-[:PERTENCE_A]->(t:Type {name: "fire"})
     RETURN p.name
 ```
-2. Cadeia Evolutiva
-```cypher
-MATCH (p:Poke {name: "Bulbasaur"})-[:EVOLUI_PARA*]->(evo)
-RETURN evo.name
-```
+![Grafo](screenshots/query_type_name.png)
+
 3. Habilidades de um Pokémon
 ```cypher
-MATCH (p:Poke {name: "Pikachu"})-[:TEM_HABILIDADE]->(a:Ability)
-RETURN a.name
+    MATCH (p:Poke {name: "pikachu"})-[:TEM_HABILIDADE]->(a:Ability)
+    RETURN a.name
 ```
+![Grafo](screenshots/query_ability_type.png)
