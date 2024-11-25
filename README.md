@@ -92,14 +92,12 @@ Execute a pipeline para:
 
 2. Pokémon por Tipo
 ```cypher
-    MATCH (p:Poke)-[:PERTENCE_A]->(t:Type {name: "fire"})
-    RETURN p.name
+    MATCH (p:Poke)-[:PERTENCE_A]->(t:Type {name: "fire"}) RETURN p.name
 ```
 ![Grafo](screenshots/query_type_name.png)
 
 3. Habilidades de um Pokémon
 ```cypher
-    MATCH (p:Poke {name: "pikachu"})-[:TEM_HABILIDADE]->(a:Ability)
-    RETURN a.name
+    MATCH (p:Poke {name: "pikachu"})-[:TEM_HABILIDADE]->(a:Ability) RETURN a.name
 ```
 ![Grafo](screenshots/query_ability_type.png)
